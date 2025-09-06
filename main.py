@@ -13,7 +13,11 @@ for index, row in df.iterrows():
     pdf.set_font(family="Times", style="B", size=24)
     pdf.set_text_color(100, 100, 100)
     pdf.cell(w=0, h=12, txt=row["Topic"], align="L", ln=1)
-    pdf.line(10, 21, 200, 21)
+
+    i = 21
+    while i < 291:
+        pdf.line(10, i, 200, i)
+        i = i + 10
 
     # Adding 278 break-lines
     pdf.ln(265)
@@ -25,6 +29,11 @@ for index, row in df.iterrows():
 
     for i in range(row["Pages"] - 1):
         pdf.add_page()
+
+        j = 21
+        while j < 291:
+            pdf.line(10, j, 200, j)
+            j = j + 10
 
         pdf.ln(277)
 
